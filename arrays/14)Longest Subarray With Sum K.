@@ -1,0 +1,24 @@
+/*Ninja and his friend are playing a game of subarrays. They have an array ‘NUMS’ of length ‘N’. Ninja’s friend gives him 
+an arbitrary integer ‘K’ and asks him to find the length of the longest subarray in which the sum of elements is equal to ‘K’.
+
+Ninjas asks for your help to win this game. Find the length of the longest subarray in which the sum of elements is equal to ‘K’.
+
+If there is no subarray whose sum is ‘K’ then you should return 0.
+
+Example:
+Input: ‘N’ = 5,  ‘K’ = 4, ‘NUMS’ = [ 1, 2, 1, 0, 1 ]*/
+
+
+#include <bits/stdc++.h> 
+int getLongestSubarray(vector<int>& nums, int k){
+unordered_map<int,int>mp;
+mp[0]=-1;
+int s=0;
+int maxi=0;
+for(int i=0;i<nums.size();i++){
+   s+=nums[i];
+   if(mp.find(s-k)!=mp.end()){
+      maxi=max(maxi,i-mp[s-k]);
+   }if(mp.find(s)==mp.end()) mp[s]=i;
+}return maxi;
+}
