@@ -5,7 +5,7 @@ class Solution {
       return n*f(n-1);
   }
     int vowelCount(string& s) {
-        // code here
+        // code here    ghjopojfp';erjg
         unordered_map<int,int>mp;
         int c=1;
         string v="aeiou";
